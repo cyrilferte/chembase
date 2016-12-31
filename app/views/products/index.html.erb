@@ -1,0 +1,14 @@
+<h2>Import Products</h2>
+
+<%= form_tag import_products_path, multipart: true do %>
+  <%= file_field_tag :file %>
+  <%= submit_tag "Import" %>
+<% end %>
+
+<% @products.each do |product| %>
+  <tr>
+    <td><%= product.cas %> <br><br></td>
+   
+
+  </tr>
+<% end %>
