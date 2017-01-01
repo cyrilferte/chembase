@@ -1,14 +1,41 @@
-<h2>Import Products</h2>
+<div class="container"><br><br><br><br><br><br><br><br>
+<h1 class="text-center">Search Chemical Products</h1>
+</div>
 
-<%= form_tag import_products_path, multipart: true do %>
-  <%= file_field_tag :file %>
-  <%= submit_tag "Import" %>
+<%= form_tag(products_path, method: :get, class: "searchform cf") do %>
+              <div class= "input-tag">
+              <%= text_field_tag :search, params[:search] %></div>
+              <%= submit_tag 'Search', :name => nil, class: "btn-search" %>
 <% end %>
 
-<% @products.each do |product| %>
-  <tr>
-    <td><%= product.cas %> <br><br></td>
-   
+<div class="container">
+<div class="container list">
+  <% if @products.blank? %>
+    <% if params[:search] %>
+      <%= "none"%>
+    <% end %>
+    
+  <% else %>
+    <% @products.each do |product| %>
+      <div class="product">
+        
+        <div class='product-body'>
+          <h4><tr>
+      <td>CAS-number : <%= product.cas %></td><br>
+      <td>Chemical : <%= product.chem %> </td><br>
+      <td>Uses : <%= product.use %>  </td><br>
+      <td>Sumformula of the chemical : <%= product.sum %>  </td><br>
+      <td>Molecular weight : <%= product.mol %></td><br>
+      <td>State and appearance : <%= product.state %> </td><br>
+      <td>Vapor pressure, mmHg : <%= product.vap %> </td>
+      </tr></h4>
+        </div>
 
-  </tr>
-<% end %>
+      </div>
+    <br><br><br>
+    <% end %>
+  <% end %>
+            
+
+</div>
+</div>

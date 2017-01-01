@@ -1,9 +1,7 @@
 class Product < ApplicationRecord
-require 'csv' 
-    def self.import(file)
-        
-        Products.new.SmarterCSV.process(file.path)
-        
-    end
+def self.search(search)
+  where("CAS ILIKE ?", "%#{search}%") 
+  where("chem ILIKE ?", "%#{search}%")
+end
 
 end

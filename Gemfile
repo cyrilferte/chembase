@@ -22,9 +22,7 @@ gem 'bootstrap-sass'
 gem 'font-awesome-sass'
 gem 'simple_form'
 gem 'autoprefixer-rails'
-gem 'roo'
-gem 'smarter_csv'
-gem 'fastercsv'
+
 
 group :development, :test do
   gem 'binding_of_caller'
